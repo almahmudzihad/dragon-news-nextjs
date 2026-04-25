@@ -5,6 +5,21 @@ import React from 'react'
 import { FaBookmark, FaEye, FaStar } from 'react-icons/fa';
 import { FaSquareShareNodes } from 'react-icons/fa6';
 
+
+export async function generateMetadata({ params}) {
+  const {id} = await params;
+  const newsdata = await getNewsDetelsById(id);
+  const post = newsdata[0];
+ 
+  return {
+    title: post.title,
+    description: post.description,
+  }
+}
+ 
+ 
+
+
 const NewsDetels = async({params}) => {
   const {id} = await params;
   const newsdata = await getNewsDetelsById(id);
