@@ -9,7 +9,7 @@ const LeftSideBar = ({ catagory , activeId}) => {
         {catagory.data.news_category.map((catagory) => (
           <li
             key={catagory.category_id}
-            className={`${activeId === catagory.category_id && "bg-slate-300"} bg-slate-100  rounded-xl font-bold text-md text-center m-2 `}
+            className={`${activeId === catagory.category_id && "bg-slate-200"}   rounded-xl font-bold text-md text-center m-2 `}
           >
             <Link href={`/category/${catagory.category_id}`}
             className="block p-2"

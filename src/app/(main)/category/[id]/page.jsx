@@ -1,17 +1,8 @@
 
 import LeftSideBar from '@/components/HomePage/News/LeftSideBar'
 import RightSideBar from '@/components/HomePage/News/RightSideBar'
+import { getCatagory, getNewsByCategoryId } from '@/lib/data';
 
-async function getCatagory () {
-  const res = await fetch('https://openapi.programming-hero.com/api/news/categories')
-  const data = await res.json()
-  return data
-}
-async function getNewsByCategoryId (catagory_id) {
-  const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${catagory_id}`)
-  const data = await res.json()
-  return data
-}
 
 
 const NewsCategory = async ({params}) => {
@@ -25,7 +16,7 @@ const NewsCategory = async ({params}) => {
         <div className="col-span-3">
           <LeftSideBar catagory={catagory} activeId={id} />
         </div>
-        <div className="text-2xl font-bold bg-red-100 col-span-6">
+        <div className=" col-span-6">
           Welcome to Dragon News
           {news.data.map((news) => (
             <div key={news._id}>

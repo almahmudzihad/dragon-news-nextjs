@@ -1,6 +1,7 @@
 import Image from "next/image";
 import user from "@/assets/user.png";
 import NavItem from "./NavItem";
+import Link from "next/link";
 
 function NavBar() {
   return (
@@ -15,7 +16,8 @@ function NavBar() {
 
       <div className="flex items-center gap-3">
         <Image src={user} alt="user" height={40} width={40} className="rounded-full" />
-        <NavItem href="/login">Login</NavItem>
+        
+        <button className="btn bg-black text-white"><Link href="/login">Login</Link></button>
       </div>
     </div>
   );

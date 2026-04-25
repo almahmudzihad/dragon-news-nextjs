@@ -1,8 +1,8 @@
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
 
-
-const defaultCatagory = "01";
-export default async function Home() {
-  redirect(`/category/${defaultCatagory}`);
-  );
+const defaultCatagory = '01';
+const HomePage = () => {
+  redirect(`/category/${defaultCatagory}`)
 }
+
+export default HomePage
