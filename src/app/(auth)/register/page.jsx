@@ -1,5 +1,6 @@
 "use client";
-import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
+
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -10,8 +11,20 @@ function RegisterPage() {
     formState: { errors },
   } = useForm();
 
-  const handelregisterFun = (data) => {
+  const handelregisterFun = async (data) => {
     console.log(data);
+    const { email, password, name, image } = data;
+
+    const {data: res , error} = await authClient.signUp.email({
+      name: name, // required
+      email: email, // required
+      password: password, // required
+      image: image,
+      callbackURL: "/",
+    })
+    console.log(error ,"error from register api");
+    console.log(res ,"res from register api");
+    
   };
 
   return (
@@ -38,7 +51,7 @@ function RegisterPage() {
               type="text"
               className="input"
               placeholder="photo link"
-              {...register("img")}
+              {...register("image", )}
             />
             <label className="label mt-4">Email</label>
             <input
