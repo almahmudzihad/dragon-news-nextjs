@@ -4,12 +4,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 function LogIn() {
-  const {register, handleSubmit, watch, formState: { errors }} = useForm();
+  const {register, handleSubmit,  formState: { errors }} = useForm();
   
   const handelLoginFun = (data) => {
     console.log(data);
   };
-  console.log(watch("email"));
   
 
   return (
