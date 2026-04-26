@@ -1,19 +1,21 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import { useForm } from "react-hook-form";
 
 function LogIn() {
-  const handelLoginFun = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(email, password);
+  const {register, handleSubmit, watch, formState: { errors }} = useForm();
+  
+  const handelLoginFun = (data) => {
+    console.log(data);
+  };
+  console.log(watch("email"));
+  
 
-  }
   return (
     <div className="container mx-auto">
       <div className="">
-        <form className="" onSubmit={handelLoginFun}>
+        <form className="" onSubmit={handleSubmit(handelLoginFun)}>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4   m-auto mt-8">
             <h1 className="text-2xl font-bold text-center p-2 ">
               Login your account
@@ -23,11 +25,14 @@ function LogIn() {
               type="email"
               className="input"
               placeholder="Enter your email"
-              name="email"
+              {...register("email", { required: true })}
               
-            />
+            
+            />{errors.email && <span className="text-red-500">Password is required</span>}
+
             <label className="label mt-4">Password</label>
-            <input type="password" className="input" placeholder="password" name="password" />
+            <input type="password" className="input" placeholder="password" {...register("password", { required: true })} />
+            {errors.password && <span className="text-red-500">Password is required</span>}
             <button className="btn bg-black text-white border-black mt-4" >
               Login
             </button>
