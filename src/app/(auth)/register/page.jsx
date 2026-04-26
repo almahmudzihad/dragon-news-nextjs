@@ -12,7 +12,7 @@ function RegisterPage() {
   } = useForm();
 
   const handelregisterFun = async (data) => {
-    console.log(data);
+    
     const { email, password, name, image } = data;
 
     const {data: res , error} = await authClient.signUp.email({
@@ -22,8 +22,13 @@ function RegisterPage() {
       image: image,
       callbackURL: "/",
     })
-    console.log(error ,"error from register api");
-    console.log(res ,"res from register api");
+    
+    if (error) {
+      alert(error.message);
+    }
+    if (res) {
+      alert("Registration successful");
+    }
     
   };
 

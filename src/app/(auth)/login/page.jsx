@@ -1,15 +1,32 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 
 function LogIn() {
-  const {register, handleSubmit,  formState: { errors }} = useForm();
-  
-  const handelLoginFun = (data) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handelLoginFun = async (data) => {
     console.log(data);
+    const { data: res, error } = await authClient.signIn.email({
+      email: data.email, // required
+      password: data.password, // required
+      rememberMe: true,
+      callbackURL: "/",
+    });
+
+    if (error) {
+      alert(error.message);
+    }
+    if (res) {
+      alert("Login successful");
+    }
   };
-  
 
   return (
     <div className="container mx-auto">
@@ -25,14 +42,22 @@ function LogIn() {
               className="input"
               placeholder="Enter your email"
               {...register("email", { required: true })}
-              
-            
-            />{errors.email && <span className="text-red-500">Password is required</span>}
+            />
+            {errors.email && (
+              <span className="text-red-500">Password is required</span>
+            )}
 
             <label className="label mt-4">Password</label>
-            <input type="password" className="input" placeholder="password" {...register("password", { required: true })} />
-            {errors.password && <span className="text-red-500">Password is required</span>}
-            <button className="btn bg-black text-white border-black mt-4" >
+            <input
+              type="password"
+              className="input"
+              placeholder="password"
+              {...register("password", { required: true })}
+            />
+            {errors.password && (
+              <span className="text-red-500">Password is required</span>
+            )}
+            <button className="btn bg-black text-white border-black mt-4">
               Login
             </button>
           </fieldset>
