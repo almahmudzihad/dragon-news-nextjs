@@ -6,7 +6,7 @@ A modern news platform built with **Next.js**, featuring authentication using **
 
 ## 🚀 Live Project
 
-👉 *(Add your live link here if deployed)*
+🚀 [Live Demo](https://dragon-news-nextjs-blond.vercel.app)
 
 ---
 
@@ -17,7 +17,7 @@ A modern news platform built with **Next.js**, featuring authentication using **
 * 📰 Dynamic news fetching and display
 * 📂 Category-based news filtering
 * ⚡ Fast and optimized performance with Next.js
-* 🎨 Clean and responsive UI
+
 
 ---
 
@@ -25,9 +25,9 @@ A modern news platform built with **Next.js**, featuring authentication using **
 
 * **Frontend:** Next.js (App Router)
 * **Authentication:** Better Auth
-* **Styling:** Tailwind CSS *(if used)*
-* **Icons/UI:** Hero UI / other libraries *(optional)*
-* **Backend/API:** JSON / External API *(update if needed)*
+* **Styling:** Tailwind CSS 
+* **Icons/UI:** Hero UI / other libraries 
+
 
 ---
 
