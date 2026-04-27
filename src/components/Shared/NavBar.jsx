@@ -1,24 +1,51 @@
+"use client";
 import Image from "next/image";
-import user from "@/assets/user.png";
+import userAvatar from "@/assets/user.png";
 import NavItem from "./NavItem";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 function NavBar() {
+  const { data: session, isPending } = authClient.useSession();
+  const userin = session?.user;
+  console.log(userin);
   return (
     <div className="flex justify-between container mx-auto mt-5">
       <div></div>
 
       <ul className="flex items-center gap-5 font-bold">
-        <li><NavItem href="/">Home</NavItem></li>
-        <li><NavItem href="/about-us">About</NavItem></li>
-        <li><NavItem href="/career">Career</NavItem></li>
+        <li>
+          <NavItem href="/">Home</NavItem>
+        </li>
+        <li>
+          <NavItem href="/about-us">About</NavItem>
+        </li>
+        <li>
+          <NavItem href="/career">Career</NavItem>
+        </li>
       </ul>
 
-      <div className="flex items-center gap-3">
-        <Image src={user} alt="user" height={40} width={40} className="rounded-full" />
-        
-        <button className="btn bg-black text-white"><Link href="/login">Login</Link></button>
-      </div>
+      { isPending ? (
+        <span className="loading loading-spinner text-neutral"></span>
+      ) : userin ? (
+        <div className="flex items-center gap-3">
+          <p className="font-bold">Hello {userin?.name}</p>
+          <Image
+            src={userin?.image || userAvatar}
+            alt="userAvatar"
+            height={40}
+            width={40}
+            className="rounded-full"
+          />
+          <button className="btn bg-black text-white">
+            <Link href="/login">Logout</Link>
+          </button>
+        </div>
+      ) : (
+        <button className="btn bg-black text-white">
+          <Link href="/login">Login</Link>
+        </button>
+      )}
     </div>
   );
 }

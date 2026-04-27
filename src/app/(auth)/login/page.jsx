@@ -12,7 +12,7 @@ function LogIn() {
   } = useForm();
 
   const handelLoginFun = async (data) => {
-    console.log(data);
+    
     const { data: res, error } = await authClient.signIn.email({
       email: data.email, // required
       password: data.password, // required

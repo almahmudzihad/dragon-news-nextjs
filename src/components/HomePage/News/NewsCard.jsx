@@ -5,7 +5,7 @@ import { FaBookmark, FaEye, FaStar } from "react-icons/fa";
 import Link from "next/link";
 
 const NewsCard = ({ news }) => {
-  console.log(news.image_url);
+  
   return (
     <div className="card bg-white shadow-md border border-gray-100 my-2">
       <div className="card-body space-y-4">
