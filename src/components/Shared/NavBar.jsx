@@ -37,8 +37,8 @@ function NavBar() {
             width={40}
             className="rounded-full"
           />
-          <button className="btn bg-black text-white">
-            <Link href="/login">Logout</Link>
+          <button className="btn bg-black text-white" onClick={async () => await authClient.signOut()}>
+            Logout
           </button>
         </div>
       ) : (
