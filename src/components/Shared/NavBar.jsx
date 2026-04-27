@@ -8,7 +8,7 @@ import { authClient } from "@/lib/auth-client";
 function NavBar() {
   const { data: session, isPending } = authClient.useSession();
   const userin = session?.user;
-  console.log(userin);
+  
   return (
     <div className="flex justify-between container mx-auto mt-5">
       <div></div>
