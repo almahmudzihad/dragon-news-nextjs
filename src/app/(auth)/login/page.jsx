@@ -1,8 +1,9 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FaEye } from "react-icons/fa";
 
 function LogIn() {
   const {
@@ -11,6 +12,7 @@ function LogIn() {
     formState: { errors },
   } = useForm();
 
+  const [showPassword, setShowPassword] = useState(false);
   const handelLoginFun = async (data) => {
     
     const { data: res, error } = await authClient.signIn.email({
@@ -46,17 +48,21 @@ function LogIn() {
             {errors.email && (
               <span className="text-red-500">Password is required</span>
             )}
-
+            
             <label className="label mt-4">Password</label>
+            <fieldset className="fieldset relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               className="input"
               placeholder="password"
               {...register("password", { required: true })}
             />
+            <span className="text-xl absolute right-2 top-4 cursor-pointer" onClick={() => setShowPassword(!showPassword)}><FaEye /></span>
+            
             {errors.password && (
               <span className="text-red-500">Password is required</span>
             )}
+            </fieldset>
             <button className="btn bg-black text-white border-black mt-4">
               Login
             </button>
