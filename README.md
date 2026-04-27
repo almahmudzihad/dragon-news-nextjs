@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🐉 Dragon News (Next.js)
 
-## Getting Started
+A modern news platform built with **Next.js**, featuring authentication using **Better Auth**, and social login support via **Google** and **GitHub**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Live Project
+
+👉 *(Add your live link here if deployed)*
+
+---
+
+## 📌 Features
+
+* 🔐 Authentication system with **Better Auth**
+* 🔑 Social login (Google & GitHub)
+* 📰 Dynamic news fetching and display
+* 📂 Category-based news filtering
+* ⚡ Fast and optimized performance with Next.js
+* 🎨 Clean and responsive UI
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** Next.js (App Router)
+* **Authentication:** Better Auth
+* **Styling:** Tailwind CSS *(if used)*
+* **Icons/UI:** Hero UI / other libraries *(optional)*
+* **Backend/API:** JSON / External API *(update if needed)*
+
+---
+
+## 📁 Project Structure
+
+```
+dragon-news-nextjs/
+│── app/
+│   ├── (auth)/
+│   ├── (news)/
+│   ├── api/
+│   └── layout.js
+│
+│── components/
+│── lib/
+│── public/
+│── styles/
+│── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🔑 Authentication Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses **Better Auth** for secure authentication.
 
-## Learn More
+### Supported Login Methods:
 
-To learn more about Next.js, take a look at the following resources:
+* Google OAuth
+* GitHub OAuth
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create a `.env.local` file and add:
 
-## Deploy on Vercel
+```
+NEXT_PUBLIC_BASE_URL=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+BETTER_AUTH_SECRET=
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚙️ Installation & Setup
+
+### 1. Clone the repository
+
+```
+git clone https://github.com/almahmudzihad/dragon-news-nextjs.git
+```
+
+### 2. Navigate to project folder
+
+```
+cd dragon-news-nextjs
+```
+
+### 3. Install dependencies
+
+```
+npm install
+```
+
+### 4. Run the development server
+
+```
+npm run dev
+```
+
+Now open 👉 http://localhost:3000
+
+---
+
+## 📸 Screenshots
+
+*(Add screenshots here if you want)*
+
+---
+
+## 🧠 What I Learned
+
+* Implementing authentication using Better Auth
+* Integrating Google & GitHub OAuth
+* Structuring a scalable Next.js App Router project
+* Handling client & server components effectively
+
+---
+
+## 🔮 Future Improvements
+
+* 🧾 Add user profile page
+* 💬 Comments system
+* ❤️ Bookmark / save news
+* 🌐 Multi-language support
+* 📊 Admin dashboard
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit a pull request.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Al Mahmud Zihad**
+GitHub: https://github.com/almahmudzihad
+
+---
+
+⭐ If you like this project, don’t forget to give it a star!
