@@ -1,8 +1,9 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function RegisterPage() {
   const {
@@ -10,6 +11,8 @@ function RegisterPage() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const handelregisterFun = async (data) => {
     
@@ -69,15 +72,19 @@ function RegisterPage() {
               <span className="text-red-500">Email is required</span>
             )}
             <label className="label mt-4">Password</label>
+            <fieldset className="fieldset relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               className="input"
               placeholder="password"
               {...register("password", { required: true })}
             />
+            <span className="text-xl absolute right-2 top-4 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
             {errors.password && (
               <span className="text-red-500">Password is required</span>
             )}
+            </fieldset>
             <button className="btn bg-black text-white border-black mt-4">
               Register
             </button>

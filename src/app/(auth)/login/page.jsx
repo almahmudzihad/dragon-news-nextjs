@@ -3,7 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function LogIn() {
   const {
@@ -57,7 +57,7 @@ function LogIn() {
               placeholder="password"
               {...register("password", { required: true })}
             />
-            <span className="text-xl absolute right-2 top-4 cursor-pointer" onClick={() => setShowPassword(!showPassword)}><FaEye /></span>
+            <span className="text-xl absolute right-2 top-4 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
             
             {errors.password && (
               <span className="text-red-500">Password is required</span>
