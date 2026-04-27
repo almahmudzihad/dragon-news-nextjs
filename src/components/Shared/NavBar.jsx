@@ -11,9 +11,9 @@ function NavBar() {
   
   return (
     <div className="flex justify-between container mx-auto mt-5">
-      <div></div>
+      <div className="flex-1"></div>
 
-      <ul className="flex items-center gap-5 font-bold">
+      <ul className="flex-1 flex items-center gap-5 font-bold">
         <li>
           <NavItem href="/">Home</NavItem>
         </li>
@@ -28,7 +28,7 @@ function NavBar() {
       { isPending ? (
         <span className="loading loading-spinner text-neutral"></span>
       ) : userin ? (
-        <div className="flex items-center gap-3">
+        <div className="flex flex-1 items-center gap-3">
           <p className="font-bold">Hello {userin?.name}</p>
           <Image
             src={userin?.image || userAvatar}

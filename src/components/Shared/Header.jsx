@@ -1,6 +1,6 @@
 import logo from "@/assets/logo.png"
 import Image from "next/image"
-import { format, compareAsc } from "date-fns";
+import { format } from "date-fns";
 function Header() {
   return (
     <div className="text-center py-8 space-y-2">
